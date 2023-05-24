@@ -1,0 +1,51 @@
+.services {
+
+  &-list{
+    display: flex;
+    justify-content: center;
+    color: white;
+
+  }
+
+  &-box {
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg,#191970 21%, rgba(59,208,255,1) 57%, #33006F 80%);
+    outline: 2px solid #1C6EA4;
+    border-right: 2px solid #1C6EA4;
+    border-radius: 0px 40px 0px 40px;
+    padding: 0.5rem;
+    margin-right: 1rem;
+ 
+    
+}
+}
+
+.box {
+  padding: 1rem;
+  width: 25vw;
+
+   &:hover {
+    opacity: 0.8;
+    scale: 1.05;
+    cursor: pointer;
+
+   }
+  
+  &-image {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  
+  }
+
+  &-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    
+  }
+  &-price {
+    text-align: left;
+    font-size: 600;
+  }
+
+   }
+
