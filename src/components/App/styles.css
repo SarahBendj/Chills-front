@@ -1,9 +1,9 @@
 .app {
-  width: 500px;
-  margin: 1em auto;
-  text-align: center;
+  padding-top: 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
 }
 
-.app img {
-  max-width: 150px;
-}

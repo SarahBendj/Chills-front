@@ -1,5 +1,7 @@
 // == Import
 import { useEffect, useState } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
 import Services from '../Services';
 import axios from 'axios';
 import './styles.css';
@@ -23,8 +25,9 @@ function App() {
  
   return (
     <div className="app"> 
-
+       < Header />
        < Services services={services} />
+       < Footer />
 
     </div>
   );
