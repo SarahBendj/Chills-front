@@ -1,0 +1,28 @@
+
+.detail-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+ 
+  
+  
+}
+
+.form {
+  padding: 2rem;
+  display:flex;
+  flex-direction: column;
+  border-left: 2px solid teal;
+
+  
+}
+.visuel-effect {
+  padding: 1rem;
+  font-weight: 700;
+  background-color: white;
+  border-right: 2px solid teal;
+  border-radius: 10px 40px 0px 10px;
+  margin-bottom: 1rem;
+}

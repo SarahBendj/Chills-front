@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+.login {
+  color: white;
+  width: 40vw;
+  margin: auto;
+  padding: 1rem;
+  background-color: vars.$seven;
+  border-radius: 0px 30px 0px 30px;
+
+    &-form {
+      margin-bottom: 2rem;
+    }
+
+    &-submit{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-bottom: 1rem;
+      Link{
+        
+        text-align: left;
+        &:hover{
+          color: crimson;
+        }
+      }
+    }
+}
