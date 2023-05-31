@@ -1,0 +1,26 @@
+@use 'src/styles/vars';
+ @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+
+.logo {
+  position: absolute;
+  top: -50px;
+  right: -10px;
+
+
+  &-img {
+    width: 200px; 
+    height: auto; 
+  }
+ 
+}
+.brand {
+ 
+  text-align: center;
+  font-weight: 600;
+
+    font-size: 3rem;
+    color: vars.$two;
+    font-family: 'Nothing You Could Do', cursive;
+
+}

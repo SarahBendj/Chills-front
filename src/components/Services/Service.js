@@ -4,8 +4,9 @@ import './style.scss';
 
 const Service = ({ name, description, img, price }) => {
   return (
+    
     <div className='box'>
-      <h2 className='box-title'> { name } </h2>
+      <h2 className='box-title'>  { name } </h2>
       <img  className='box-image'src={img} alt={`image of ${img}`} />
       {/* <p className='box-description'> { description } </p> */}
       <span className='box-price'> <p> { price }</p>  $</span>

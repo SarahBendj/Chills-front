@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.lost-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: vars.$six;
+  border-radius: 8px;
+  color: vars.$two;
+  &-text {
+    font-weight: 900;
+    font-size: 8rem;
+  
+  }
+  &-link {
+    padding: 1rem;
+    font-size: 2rem;
+    
+    
+
+  }
+}

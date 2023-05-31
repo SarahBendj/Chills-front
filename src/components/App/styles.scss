@@ -1,4 +1,6 @@
 @use 'src/styles/vars';
+ @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Slabo+27px&display=swap');
+
 
 .app {
   padding-top: 1rem;
@@ -7,5 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color : vars.$five;
+  font-family: 'Nothing You Could Do', cursive;
+  font-family: 'Slabo 27px', serif;
 }
 

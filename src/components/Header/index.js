@@ -8,7 +8,7 @@ const Header = ({menu}) => {
       <nav >
         <div className='navLeft'>
           {
-            menu.map((item)=> <NavLink key={item.id} className='nav-item'>{item.name}</NavLink>)
+            menu.map((item)=> <NavLink to={item.name} key={item.id} className='nav-item'>{item.name}</NavLink>)
           }
         
         
