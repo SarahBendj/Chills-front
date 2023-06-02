@@ -1,5 +1,7 @@
 @use 'src/styles/vars';
 
+
+
 .services {
 
   &-list{
@@ -19,6 +21,61 @@
     margin-right: 1rem;
  
 }
+}
+ .one-box {
+  display : flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  color : vars.$one;
+  background-color: vars.$seven;
+  padding: 1rem;
+  font-size : 1.3rem;
+ 
+
+
+  
+  &-image {
+    border-radius: 10px;
+    min-width: 60%;
+    max-width: 60%;
+    margin-bottom: 1rem;
+    opacity : 0.6;
+  
+  
+  }
+
+  &-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    z-index: 2;
+
+    
+  }
+  &-description {
+    margin-bottom: 2rem;
+    
+  }
+  &-price{
+    display: flex;
+    align-items: left;
+     p{
+      font-weight: 700;
+      
+
+    }
+    &-appointement{
+      
+    }
+  }
+
+   }
+  
+
+  
+
+.hidden{
+  display: none;
 }
 
 .box {
@@ -45,10 +102,7 @@
     font-weight: 700;
     
   }
-  &-description {
-    margin-bottom: 2rem;
-    
-  }
+ 
   &-price{
     display: flex;
     align-items: left;

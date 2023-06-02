@@ -9,6 +9,7 @@ import Sign from "../Sign";
 import Footer from "../Footer";
 import LostPage from '../LostPage'
 import Services from "../Services";
+import Service from "../Services/Service"
 import RequiredAuth from "../RequireAuth";
 import { Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,10 @@ function App() {
   const [extra, setExtra] = useState([]);
   const [technic, setTechnic] = useState([]);
   const [discount, setDiscount] = useState([]);
+  // condition of displaying one service
+  const [isOne, setIsOne] = useState(false);
+
+ 
 
   useEffect(() => {
     axios
@@ -96,8 +101,19 @@ function App() {
          {/*Public routes  */}
         <Route path="/main" element={<Main />} />
         {/* <Route element={ <RequiredAuth /> }> */}
-          <Route path="/services" element={<Services services={services} />} />
+       
         {/* </Route> */}
+         <Route path="/services" element={<Services services={services} isOne={isOne} setIsOne={setIsOne}  />} />
+         {
+          services.map((service) => ( 
+            <Route 
+                key={service.id} 
+                path={`/services/${service.name}`} 
+                element={ < Service {...service} isOne={isOne} />}/>
+
+          ))       
+          }
+       
         <Route
           path="/appointement"
           element={

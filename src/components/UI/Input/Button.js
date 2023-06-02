@@ -1,8 +1,8 @@
 import './input.scss';
 
-const Button = ( {type='button', onClick, children} ) => {
+const Button = ( {type='button',display='btn', onClick, children} ) => {
   return (
-    <button  className='btn' type={type} onClick = {onClick}>
+    <button  className={display} type={type} onClick = {onClick}>
       { children} 
     </button>
   );
