@@ -6,8 +6,10 @@
 
   &-list{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     color: white;
+    margin: 1rem;
 
   }
 
@@ -19,6 +21,7 @@
     border-radius: 0px 30px 0px 30px;
     padding: 0.5rem;
     margin-right: 1rem;
+
  
 }
 }
@@ -29,9 +32,13 @@
   flex-direction: row;
   color : vars.$one;
   background-color: vars.$seven;
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-right: 6rem;
+  padding-left : 2rem;
   font-size : 1.3rem;
- 
+  margin: 1.5rem;
+  border-radius: 5px;
+  
 
 
   
@@ -40,23 +47,23 @@
     min-width: 60%;
     max-width: 60%;
     margin-bottom: 1rem;
-    opacity : 0.6;
-  
+    opacity : 0.85;
   
   }
 
   &-title {
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    z-index: 2;
-
-    
+    color: yellow;
+ 
   }
   &-description {
     margin-bottom: 2rem;
     
   }
   &-price{
+    margin-bottom: 2rem;
     display: flex;
     align-items: left;
      p{
@@ -64,19 +71,33 @@
       
 
     }
-    &-appointement{
-      
+   
+  }
+  &-technics {
+    margin-bottom: 2rem;
+    p {
+
+    margin-bottom: 1rem;
+    color :#e96868
+  }
+
+  li {
+    display: inline-block; 
+    color : vars.$six;
+    margin-right: 10px;
+    background-color: #ccc;
+    padding: 5px 10px; 
+    border-radius: 5px; 
+
+    &:hover {
+      background-color: #c7b4b4;
+      cursor: pointer;
     }
+    
   }
 
    }
-  
-
-  
-
-.hidden{
-  display: none;
-}
+  }
 
 .box {
   padding: 1rem;
@@ -116,3 +137,7 @@
 
    }
 
+   .hidden{
+    display: none;
+  }
+  

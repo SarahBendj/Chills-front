@@ -16,7 +16,7 @@ const InputTextArea = ({label ,name , placeholder, validation, value, onChange})
   }
 
   return (
-    <div className='input'>Description
+    <div className='input'>
     
       <label htmlFor={id}> { label }</label>
       <textarea type="text" name={name} className='input-textArea' placeholder={placeholder}  value={ value } onChange={ handleOnChange }/>

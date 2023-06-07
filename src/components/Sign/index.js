@@ -48,21 +48,6 @@ const index = () => {
     }
   };
 
-  //   axios.post(SIGN_URL ,{
-  //     firstname, lastname, email , password
-  //    }
-  //   ,{
-  //      headers: {'Content-Type' : 'application/json'}
-  //   })
-  //   .then(response => response.data)
-  //   .then(data => {
-  //     console.log(data);
-  //   })
-  //   .catch(error => {
-  //     console.error(error);
-  //    });
-
-  // }
 
   return (
     <div>

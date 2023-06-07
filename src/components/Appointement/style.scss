@@ -1,0 +1,76 @@
+@use 'src/styles/vars';
+
+.detail-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form {
+  margin-right: 1rem;
+  width: 50vw;
+  padding: 2rem;
+  display:flex;
+  flex-direction: column;
+  background-color: vars.$seven;
+  border-radius: 5px;
+  color: vars.$one;
+
+  
+}
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: vars.$one;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+ 
+
+}
+.visuel-effect {
+  padding: 0.5rem;
+  font-weight: 600;
+  background-color: white;
+  border-right: 2px solid teal;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+label {
+  color: vars.$one;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+ 
+}
+.hidden{
+  display: none;
+
+}
+.book-data {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  padding: 1rem;
+  &:hover{
+    background-color: black;
+  }
+}
+.Link {
+  text-align: center;
+  font-size: 1.5rem;
+  color: vars.$one;
+  margin: 2rem;
+ 
+  &:hover{
+    color : vars.$two
+  }
+
+}
+.data-value{
+  color: yellow;
+}
