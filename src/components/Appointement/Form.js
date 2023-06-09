@@ -7,6 +7,7 @@ import axios from '../../Axios/axios';
 import './style.scss'
 import { Notyf } from 'notyf';
 import { Link } from 'react-router-dom';
+import useAuth from '../Hook/useAuth';
 
 
 const notyf = new Notyf({
@@ -36,28 +37,37 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
   const [ serviceId ,setServiceId ] = useState("");
   const [ bodyZoneId , setBodyZoneId] = useState("");
   const [ selectedBodyZone , setSelectedBodyZone] = useState("");
+  const [ price , setPrice ]= useState('');
+  const [ newPrice , setNewPrice ]= useState('')
 
   //*conditions
   const [ isHovered ,setIsHovered ] = useState(false);
   const [ isBooked  , setIsBooked ] = useState(false)
 
-  //*CLIENT DATA , DATA TO DISPLAY FOR THE CLIENT ONCE THE BOOKING IS DONE
-  const clientDATA = ({
-    TECHNIC : selectedService,
-    EXTRA : selectedBodyZone,
-    SERVICE : selectedService,
-    DATE : infoBooked.createdat,
-    DESCRIPTION : description
-  })
-  
-  
+  //*IS AUTHETIFICATED ?
 
+  const { auth } = useAuth();
+
+  //*CLIENT DATA , DATA TO DISPLAY FOR THE CLIENT ONCE THE BOOKING IS DONE
+  const clientDATA = {
+    TECHNIC: selectedService || "NOTHING PICKED",
+    EXTRA: selectedBodyZone || "NOTHING PICKED",
+    SERVICE: selectedService || "NOTHING PICKED",
+    DATE: infoBooked ? infoBooked.createdat : "NOTHING PICKED",
+    PRICE: newPrice|| price,
+    DESCRIPTION: description,
+  };
+  
+// SPECIFIC SERVICE TO GO WITH
   const handleMouseEnter = () => {
     setIsHovered(true);
+    
   };
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+// DATA THAT NEED TO BE FILLED IN THE FORM
   const BOOKING = 
     {
       discount_sale: discounted,
@@ -69,19 +79,21 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
       app_user_id : 1
 
   }
-
+//MAIN FUNCTION 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
     axios
       .post(
         APPOINTEMENT_URL , BOOKING,
-        { headers: { 'Content-Type': 'application/json' } }
+        { headers: { 'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + user.token, } }
       )
       .then((response) => {
         console.log(response.data)
-        const data = response.data
-        setInfoBooked(data)
+        const{ appointementBooked, totalPrice } = response.data
+        setInfoBooked(appointementBooked)
+        setNewPrice(totalPrice)
         notyf.success('Appointment booked successfully');
         setIsBooked(true)
       })
@@ -92,8 +104,7 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
   };
  
 
- 
-//* select options handle
+//* TURN SELECTED VALUES TO NUMBERS (FK) IF "MATCH" 
   const handleSelectedExtra = (value) => {
     setSelectedExtra(value);
     const match = extra.find((item) => item.name === value);
@@ -118,6 +129,14 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
   };
 
 
+  //*IMAGE DISPLAYING 
+  const match = services.find((item) => item.id === serviceId);
+  useEffect(() => {
+    if (match) {
+      console.log(match.price);
+    }
+  }, [match]);
+
   return (
     <>
     <div className={isBooked ? 'hidden':''}>
@@ -126,11 +145,13 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
 
       <p className='form-title '>  Appointement </p>
 
-      <div className={ isHovered? 'visuel-effect' : '' } 
+      <div className={ isHovered? '`box-img`' : '' } 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} >
-      <img  className='box-img' src='' alt={`image of $''`} />
-      <p className='box-title'> </p> </div>
+        {match && (
+           <img key={match.id} className={`box-img`} src={match.img} alt={`image of ${match.name}`} />
+         )}
+     </div>
 
       <SelectOption label="Services" onChange={(value)=> handleSelectedService(value) } value={selectedService} options={services} name='service_id' />
         < Input
@@ -146,7 +167,7 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
         }}/>
         
         <SelectOption label="Extra services" onChange={(value)=> handleSelectedExtra(value) } value={selectedExtra} options={extra} name='extra_id' />
-        <SelectOption label="bodyzONE bo"onChange={(value)=> handleSelectedBodyZone(value) } value={selectedBodyZone}  options={bodyZone} name='bodyZone_id' />
+        <SelectOption label="bodyZone bo"onChange={(value)=> handleSelectedBodyZone(value) } value={selectedBodyZone}  options={bodyZone} name='bodyZone_id' />
         <SelectOption label="technics services"onChange={(value)=>  handleSelectedTechnic(value) } value={selectedTechnic}  options={technic} name='technic_id' />
         
         <InputTextArea 
@@ -162,6 +183,10 @@ const Form = ({ extra , discount,technic  ,  bodyZone , services }) => {
                minLenght:5,
          }}
           />
+          
+           <div className='visuel-effect left'> {price} $</div>
+          
+          
           < Button type="submit" value='book' > Book </Button>
       </form>
      

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Input from "../UI/Input/Input";
 import { Notyf } from "notyf";
@@ -14,6 +15,7 @@ const index = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const notyf = new Notyf({
     duration: 2000,
@@ -40,7 +42,7 @@ const index = () => {
         }
       );
       notyf.success("You're successfully registred ");
-      console.log(response?.data);
+      navigate('/login');
       
     } catch (error) {
       console.error(error);

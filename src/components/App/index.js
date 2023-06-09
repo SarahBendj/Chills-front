@@ -1,6 +1,6 @@
 // == Import
 import { useEffect, useState } from "react";
-
+import useAuth from '../Hook/useAuth';
 import Header from "../Header";
 import Logo_Brand from "../Logo_Brand";
 import Main from "../Main";
@@ -12,6 +12,7 @@ import Services from "../Services";
 import Service from "../Services/Service"
 import Appointement from "../Appointement";
 import RequiredAuth from "../RequireAuth";
+import Profile from "../Profile";
 import { Routes, Route } from "react-router-dom";
 
 import axios from "../../Axios/axios"
@@ -35,6 +36,10 @@ function App() {
   const [ bodyZone ,setBodyZOne ] = useState([]);
   // condition of displaying one service
   const [isOne, setIsOne] = useState(false);
+
+  //*AUTHETIFICATION BLOC
+  const { auth } = useAuth();
+  const resizeDashboard = auth?.token? 'RESIZE' :'';
 
  
   useEffect(async ()=> {
@@ -102,19 +107,19 @@ function App() {
  
 
   return (
-    <div className="app">
+    <>
+    <Profile />
+    <div className={`app ${resizeDashboard}`}>
       <Header menu={menu} />
-      <Logo_Brand />
+      
+      {/* <Logo_Brand /> */}
 
       <Routes>
-        
+         {/*Public routes  */}
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
          
-         {/*Public routes  */}
-        <Route path="/main" element={<Main />} />
-        {/* <Route element={ <RequiredAuth /> }> */}
-       
+        
         {/* </Route> */}
          <Route path="/services" element={
          <Services services={services} bodyZone={bodyZone}
@@ -144,12 +149,21 @@ function App() {
             
           }
         />
+
+         {/* PROTECTED ROUTES */}
+         <Route element={<RequiredAuth />}>
+            <Route path="/main" element={<Main />} />
+            <Route path="/blog"  element='un blog de pub / effets des services/témoignage/ discount ticket'></Route>      
+            </Route>
+
         <Route path="*" element={<LostPage />} />
       </Routes>
       <Footer />
     </div>
+    </>
   );
 }
+
 
 // == Export
 export default App;

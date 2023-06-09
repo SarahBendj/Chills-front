@@ -1,16 +1,16 @@
-// == Import : npm
+//NPM
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom'
-
-// == Import : local
-// Composants
+//LOCAL
 import App from 'src/components/App';
+import { AuthProvider } from './context/AuthProvider';
 
-// == Render
-// 1. Élément React racine (celui qui contient l'ensemble de l'app)
-//    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
-   <BrowserRouter > <App /> </BrowserRouter>
+  <BrowserRouter >
+      <AuthProvider>
+        <App /> 
+      </AuthProvider> 
+  </BrowserRouter>
 )
 
 

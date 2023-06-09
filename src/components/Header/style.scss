@@ -5,8 +5,11 @@ nav{
     justify-content: space-between;
     margin-bottom: 2rem;
     color: white;
+    position: relative;
+    z-index: 2
 }
 .nav-item{
+  font-size: 1.1rem;
   font-weight: 600;
   margin-right: 1rem;
   margin-left: 1rem;
@@ -29,3 +32,6 @@ nav{
   flex-direction: row;
   justify-content: center;
 }
+
+
+

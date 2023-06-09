@@ -8,6 +8,7 @@
   border-radius: 8px;
   color: vars.$two;
   &-text {
+    padding-left: 1.5rem;
     font-weight: 900;
     font-size: 8rem;
   
@@ -15,8 +16,80 @@
   &-link {
     padding: 1rem;
     font-size: 2rem;
+    &:hover {
+      color: yellow;
+    }
     
     
 
   }
 }
+/*********cube********/
+.cube-space {
+  margin: auto;
+  height: 15rem;
+  width: 15rem;
+  perspective: 1000px;
+
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 10s infinite;
+  
+}
+
+.face {
+  color: vars.$one;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  vertical-align: middle;
+  line-height: 15rem;       
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: radial-gradient(vars.$six , vars.$three);
+  
+  
+}
+.top {
+  
+  transform: rotateX(90deg) translateZ(7.5rem);
+  
+}
+.down {
+  
+  transform: rotateX(-90deg) translateZ(7.5rem);
+  
+}
+.left {
+
+  transform:rotateY(90deg) translateZ(-7.5rem) ;
+}
+.back {
+  
+  transform: translateZ(-7.5rem);
+}
+.right {
+  
+  transform: rotateY(-90deg) translateZ(-7.5rem);
+}
+.bottom {
+  
+  transform: rotateX(-90deg) translateZ(7.5rem);
+
+}
+.front {
+  
+  transform: translateZ(7.5rem);
+}
+
+@keyframes spin {
+  0%  {transform: rotateX(0deg) rotateY(0deg) ;}
+ 
+  100%{ transform:  rotateX(-360deg) rotateY(-360deg)  ;} 
+}
+
