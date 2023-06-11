@@ -13,8 +13,16 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
+    
+    
     rules: [
-      // Styles
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name: 'media/[name].[ext]',
+        },
+      },
       {
         test: /\.(s?css)$/,
         use: [

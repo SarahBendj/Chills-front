@@ -1,9 +1,9 @@
 // == Import
-import { useEffect, useState } from "react";
 import useAuth from '../Hook/useAuth';
 import Header from "../Header";
+import WelcomePage from "../WelcomePage";
 import Logo_Brand from "../Logo_Brand";
-import Main from "../Main";
+import About from "../About";
 import Login from "../Login";
 import Sign from "../Sign";
 import Footer from "../Footer";
@@ -13,8 +13,15 @@ import Service from "../Services/Service"
 import Appointement from "../Appointement";
 import RequiredAuth from "../RequireAuth";
 import Profile from "../Profile";
-import { Routes, Route } from "react-router-dom";
+//* STATIC PAGES
+import Testimonials from "../Testimonials";
+import Stats from "../Stats";
+import Products from "../Products";
 
+
+//NPM + STYLE
+import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import axios from "../../Axios/axios"
 import "./styles.scss";
 
@@ -34,14 +41,14 @@ function App() {
   const [technic, setTechnic] = useState([]);
   const [discount, setDiscount] = useState([]);
   const [ bodyZone ,setBodyZOne ] = useState([]);
-  // condition of displaying one service
+  //== condition of displaying one service
   const [isOne, setIsOne] = useState(false);
 
-  //*AUTHETIFICATION BLOC
+  //* ==AUTHETIFICATION BLOC
   const { auth } = useAuth();
   const resizeDashboard = auth?.token? 'RESIZE' :'';
 
- 
+ // == API DATA
   useEffect(async ()=> {
     try {
       const response = await axios.get(MENU_URL , 
@@ -116,6 +123,19 @@ function App() {
 
       <Routes>
          {/*Public routes  */}
+         <Route path="/" element={
+  <>
+    <WelcomePage />
+    <About />
+    <Services services={services} bodyZone={bodyZone} isOne={isOne} setIsOne={setIsOne} technic={technic} />
+    < Products />
+    <Testimonials />
+    < Stats /> 
+
+    
+  </>
+} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
          
@@ -152,7 +172,8 @@ function App() {
 
          {/* PROTECTED ROUTES */}
          <Route element={<RequiredAuth />}>
-            <Route path="/main" element={<Main />} />
+          
+            <Route path="/main" element={<About />} />
             <Route path="/blog"  element='un blog de pub / effets des services/témoignage/ discount ticket'></Route>      
             </Route>
 

@@ -1,0 +1,29 @@
+@use 'src/styles/vars';
+
+.stat-container {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  height: 180px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color : #fff;
+  background: linear-gradient(90deg,vars.$seven 21%, rgb(239, 241, 242) 57%, vars.$seven 80%);
+ // background-color: vars.$seven;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: beige;
+}

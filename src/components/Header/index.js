@@ -6,44 +6,46 @@ import './style.scss';
 const Header = ({menu}) => {
 
   const { auth , logout } = useAuth();
-  
-  const handleOnclick = () => {
+  const isAuthetificated  = auth?.token
+
+  const handleLogout= () => {
     logout();
   };
   
 
   return (
     <header>
-     
-       <nav >
+    <nav>
+    
       <div className='navLeft'>
         {menu.slice(0, 3).map((item) => (
-          <NavLink to={item.name} key={item.id} className='nav-item'>{item.name}</NavLink>
+          <NavLink to={item.name} key={item.id} className='nav-item'>
+            {item.name}
+          </NavLink>
         ))}
+        <NavLink to="/" className='nav-item' > CHILLS CENTER</NavLink>
       </div>
       <div className='navRight'>
-        {auth?.token ? (
-          menu.slice(3).map((item) => (
-            <NavLink to={item.name} key={item.id} className='nav-item'>{item.name}</NavLink>
-          ))
+        {isAuthetificated  ? (
+          <>
+            <NavLink className='nav-item' onClick={handleLogout}>
+              Disconnected
+            </NavLink>
+          </>
         ) : (
           <>
-          
-          <NavLink className='nav-item' to='/BLOG'>BLOG</NavLink> 
-          <NavLink className='nav-item' onClick={handleOnclick}>Disconnected</NavLink>
-         </>
-          
-          
+            {menu.slice(3).map((item) => (
+              <NavLink to={item.name} key={item.id} className='nav-item'>
+                {item.name}
+              </NavLink>
+            ))}
+          </>
         )}
       </div>
     </nav>
-   
-
-    </header>
-  )
-
+  </header>
+);
 };
-
 
 
 export default Header;

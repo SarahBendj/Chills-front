@@ -1,0 +1,35 @@
+@use 'src/styles/vars';
+.title {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.about-details {
+  line-height: 1.5;
+  color: #fff;
+}
+
+.about-image {
+ margin-left: 2rem;
+  width: 100vh;
+  max-height: 70vh; /* Set the maximum height to 50% of the viewport height */
+  object-fit: cover; /* Ensure the image fills the container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

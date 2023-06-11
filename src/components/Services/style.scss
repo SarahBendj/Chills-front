@@ -3,27 +3,25 @@
 
 
 .services {
+  width: auto;
 
   &-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     color: white;
-    margin: 1rem;
 
   }
 
   &-box {
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg,vars.$five 21%, rgba(59,208,255,1) 57%, vars.$seven 80%);
-    outline: 2px solid vars.$six;
-    border-right: 2px solid vars.$seven;
-    border-radius: 0px 30px 0px 30px;
-    padding: 0.5rem;
-    margin-right: 1rem;
+     background: linear-gradient(90deg,vars.$five 21%, rgb(239, 241, 242) 57%, vars.$seven 80%);
+    // border-radius: 0px 30px 0px 30px;
+     padding: 0.5rem;
+     margin: 1rem;
 
  
 }
+//* DISPLAY ONE SPECIFIC SERVICE
 }
  .one-box {
   display : flex;
@@ -90,7 +88,7 @@
     border-radius: 5px; 
 
     &:hover {
-      background-color: #c7b4b4;
+      background-color: #695757;
       cursor: pointer;
     }
     
@@ -98,22 +96,26 @@
 
    }
   }
-
+//*DISPLAYS ALL THE CARDS OF SERVICES
 .box {
+ 
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s, transform 0.3s;
   padding: 1rem;
   width: 15vw;
 
    &:hover {
     opacity: 0.8;
-    scale: 1.05;
+    transform: scale(1.05);
     cursor: pointer;
 
    }
   
   &-image {
     border-radius: 10px;
-    min-width: 85%;
-    max-width: 85%;
+    width: 100%;
+    height: auto;
     margin-bottom: 1rem;
   
   }
@@ -129,6 +131,8 @@
     align-items: left;
      p{
       font-weight: 700;
+      font-size: 1rem;
+      margin-right: 0.5rem;
       
 
     }
